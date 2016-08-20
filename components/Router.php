@@ -35,6 +35,8 @@ class Router
             //если запрос существует в роутах
             if (preg_match("~$uriPattern~", $uri)) {
 
+                $path = preg_replace("~$uriPattern~", $path, $uri);
+
                 //разбиваем строку на контроллер и экшн
                 $segment = explode("/", $path);
 
@@ -48,7 +50,7 @@ class Router
                 };
 
                 $controllerObject = new $controllerName;
-                $result = $controllerObject->$actionName();
+                $result = call_user_func_array(array($controllerObject, $actionName), $segment);
 
 
                 //нахуя, если мы подразумеваем что экшн будет в любом случае, если запрос совпал с паттерном в роутах
