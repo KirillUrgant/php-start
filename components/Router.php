@@ -50,6 +50,8 @@ class Router
                 $controllerObject = new $controllerName;
                 $result = $controllerObject->$actionName();
 
+
+                //нахуя, если мы подразумеваем что экшн будет в любом случае, если запрос совпал с паттерном в роутах
                 if ($result != null) {
                     break;
                 }
