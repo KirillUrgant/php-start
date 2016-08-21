@@ -1,5 +1,7 @@
 <?php
 
+include_once ROOT."/models/News.php";
+
 class NewsController
 {
     function actionIndex()
@@ -13,6 +15,7 @@ class NewsController
         echo "Просмотр одной новости<br>";
         echo "Категория: $category<br>";
         echo "Номер новости: $id<br>";
+        var_dump(News::getItemById($id));
         return true;
     }
 }
