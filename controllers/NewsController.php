@@ -6,16 +6,15 @@ class NewsController
 {
     function actionIndex()
     {
-        echo "Просмотр списка новостей";
+        $newsList = News::getList();
+        Template::render('news/list.html', array("news" => $newsList));
         return true;
     }
 
-    function actionView($category, $id)
+    function actionView($id)
     {
-        echo "Просмотр одной новости<br>";
-        echo "Категория: $category<br>";
-        echo "Номер новости: $id<br>";
-        var_dump(News::getItemById($id));
+        $news = News::getItemById($id);
+        Template::render('news/views.html', $news);
         return true;
     }
 }

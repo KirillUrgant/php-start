@@ -9,6 +9,8 @@ class Db
 
         $dbh = new PDO("mysql:host=".$params["host"].";dbname=".$params["dbname"], $params["user"], $params["pass"]);
 
+        $dbh->query("SET CHARACTER SET 'utf8'");
+
         return $dbh;
     }
 }
