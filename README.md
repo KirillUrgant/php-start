@@ -4,5 +4,6 @@ It's my simple realization mvc carcass on php by http://php-start.com/course/php
 ##Run
 ```shell
 cd ~/project-dir/
+composer install
 php -S 0.0.0.0:4000 -t .
 ```
